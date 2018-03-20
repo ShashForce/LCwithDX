@@ -1,0 +1,18 @@
+<aura:component implements="flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId" access="global" >
+    
+    <lightning:card title="Quick edit" iconName="utility:edit_form">
+        
+        <lightning:recordEditForm recordId="{!v.recordId}" objectApiName="Contact" >
+            <lightning:messages />
+            <p class="slds-p-horizontal_small">
+                <lightning:inputField fieldName="FirstName" />
+                <lightning:inputField fieldName="LastName" />
+                <lightning:inputField fieldName="Email" />
+                <lightning:inputField fieldName="Phone" />
+                <lightning:button type="submit" label="Save" name="save" variant="brand" class="slds-m-top_small"/>
+            </p>
+        </lightning:recordEditForm>
+        
+    </lightning:card>
+    
+</aura:component>

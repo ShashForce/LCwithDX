@@ -1,0 +1,26 @@
+<aura:component implements="flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId" access="global" >
+	
+    <aura:attribute name="editMode" type="Boolean" default="false" />
+    
+    <lightning:card title="Quick View/Edit">        
+        
+        <aura:if isTrue="{! !v.editMode }">
+            <c:quickContactView recordId="{! v.recordId }"/>
+        </aura:if>
+        
+        <aura:if isTrue="{! v.editMode }">
+            <c:quickContactEdit recordId="{! v.recordId }"/>
+        </aura:if>
+        
+        <aura:set attribute="actions">
+            <lightning:buttonStateful state="{! v.editMode }" 
+                                    iconNameWhenOff="utility:edit_form" 
+                                    labelWhenOff="Click to Edit" 
+                                    iconNameWhenOn="utility:check" 
+                                    labelWhenOn="Done Editing" 
+                                    onclick="{! c.toggleMode }"/>
+        </aura:set>
+        
+    </lightning:card>   
+    
+</aura:component>
