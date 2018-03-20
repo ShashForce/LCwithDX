@@ -17,7 +17,7 @@
 7. **Command Line:** (Local Machine) Use Terminal** **if you are a Mac user. If you are a Windows user, for simplicity, use Git Bash. Git Bash is similar to the Terminal on Mac, and it usually comes installed along with Git. Note: For ease, wherever it says “Terminal” in the rest of the tutorial, it means “Git Bash” if you are using Windows.
     1. Terminal for Mac, Git Bash (usually comes with git installation) for Windows
 
-## Hands-on steps:
+## Hands-on Steps:
 
 ### Step 1:
 
@@ -30,8 +30,8 @@ sfdx force
 sfdx force --help
 ```
 
-undefined
-### step 2:
+![1](tutorial/1.png)
+### Step 2:
 
 Create a new Salesforce DX project directory (folder) with the Salesforce CLI using the below commands, one by one. This will create a scaffolded (template) directory with necessary config files and sub-folders using the Salesforce DX format. Use terminal commands like “cd” and “ls” to switch into the directory and see the contents.
 
@@ -42,8 +42,8 @@ cd LCwithDX
 ls
 ```
 
-undefined
-### step 3:
+![2](tutorial/2.png)
+### Step 3:
 
 Initiate the project directory as a Git repository for source code management and version control.
 
@@ -51,12 +51,12 @@ Initiate the project directory as a Git repository for source code management an
 git init
 ```
 
-undefined
-### step 4:
+![3](tutorial/3.png)
+### Step 4:
 
 Open the VS Code text editor, and open our new folder “LCwithDX” in it. Check out the folder structure and default configuration files like “sfdx-project.json” (project configuration) and “config/project-scratch-def.json” (scratch org configuration).
-undefinedundefinedundefined
-### step 5:
+![4](tutorial/4.png)![4a](tutorial/4a.png)![4b](tutorial/4b.png)
+### Step 5:
 
 Create a new Lightning Component named “quickContactView” using the below Salesforce CLI commands, one by one, including help commands for better understandind. Check out the newly created lightning component bundle under the “force-app/main/default/aura” directory  in VS Code.
 
@@ -66,8 +66,8 @@ sfdx force:lightning:component:create --help
 sfdx force:lightning:component:create -n quickContactView -d force-app/main/default/aura
 ```
 
-undefinedundefinedundefinedundefined
-### step 6:
+![5](tutorial/5.png)![5a](tutorial/5a.png)![5b](tutorial/5b.png)![5c](tutorial/5c.png)
+### Step 6:
 
 Remove the default markup in the “quickContactView.cmp” file, and paste the below code and save using ctrl+S or the Save button in VS Code's file menu.
 
@@ -90,8 +90,8 @@ Remove the default markup in the “quickContactView.cmp” file, and paste the 
 </aura:component>
 ```
 
-undefined
-### step 7:
+![6](tutorial/6.png)
+### Step 7:
 
 Create two more lightning components “quickContactEdit” and “quickContactViewEdit” using below commands and code and save them. The “quickContactViewEdit” component uses the “quickContactView” and “quickContactEdit” components in its markup.
 
@@ -99,7 +99,7 @@ Create two more lightning components “quickContactEdit” and “quickContactV
 sfdx force:lightning:component:create -n quickContactEdit -d force-app/main/default/aura/
 ```
 
-undefined
+![7](tutorial/7.png)
 ```
 <aura:component implements="flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId" access="global" >
     
@@ -121,12 +121,12 @@ undefined
 </aura:component>
 ```
 
-undefined
+![7a](tutorial/7a.png)
 ```
 sfdx force:lightning:component:create -n quickContactViewEdit -d force-app/main/default/aura/
 ```
 
-undefined
+![7b](tutorial/7b.png)
 ```
 <aura:component implements="flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId" access="global" >
     
@@ -156,8 +156,8 @@ undefined
 </aura:component>
 ```
 
-undefined
-### step 8:
+![7c](tutorial/7c.png)
+### Step 8:
 
 Add a Javascript method to the “quickContactViewEdit” component bundle by pasting below code in it's javascript controller file “quickContactViewEditController.js”. This function gives view/edit mode toggling functionality to the “lightning:buttonStateful” button we use in the component markup.
 
@@ -169,8 +169,8 @@ Add a Javascript method to the “quickContactViewEdit” component bundle by pa
 })
 ```
 
-undefined
-### step 9:
+![8](tutorial/8.png)
+### Step 9:
 
 Authenticate the Salesforce CLI with a Dev Hub enabled org to give the CLI the ability to create and manage scratch orgs. Make it the default Dev Hub for the CLI using the “-d” flag and give it an alias (short name) “devhub” using the “-a” flag in the command. When you enter the command, you will be prompted with a browser asking you for your Salesforce login, provide the Dev Hub org credentials, click “Allow” on the next screen and come back to the Terminal. You will see a message “Successfully authorized *username* with org ID *orgid. *You may now close the browser”. At this point, you can close the Dev Hub org window in the browser and the Salesforce CLI now has the ability to create and manage scratch orgs.
 
@@ -179,13 +179,13 @@ sfdx force:auth --help
 sfdx force:auth:web:login --help
 ```
 
-undefined
+![9](tutorial/9.png)
 ```
 sfdx force:auth:web:login -d -a devhub
 ```
 
-undefinedundefinedundefinedundefined
-### step 10:
+![9a](tutorial/9a.png)![9b](tutorial/9b.png)![9c](tutorial/9c.png)![9d](tutorial/9d.png)
+### Step 10:
 
 Create a new Scratch Org using the Salesforce CLI by providing a mandatory config file. We can just use the “config/project-sccratch-def.json” file, which is a default scratch org configuration file that gets created when we create a Salesforce DX project. Make it the default scratch org using the “-s” flag and give it an alias (short name) “newscratch” using the “-a” flag.
 
@@ -193,18 +193,18 @@ Create a new Scratch Org using the Salesforce CLI by providing a mandatory confi
 sfdx force:org --help
 ```
 
-undefined
+![10](tutorial/10.png)
 ```
 sfdx force:org:create --help
 ```
 
-undefined
+![10a](tutorial/10a.png)
 ```
 sfdx force:org:create -s -a newscratch -f config/project-scratch-def.json
 ```
 
-undefined
-### step 11:
+![10b](tutorial/10b.png)
+### Step 11:
 
 You can check the status of source code and metadata differences between the local machine and the scratch org using the “force:source:status” command. At this point, you will see all the files in the 3 new component bundles on the local machine that don't yet exist in the scratch. Push your local source code into the scratch org with the Salesforce CLI using the “force:source:push” command. Once the changes are pushed and then you check the status, we will see there are no more differences between the local machine and the scratch org.
 
@@ -212,19 +212,19 @@ You can check the status of source code and metadata differences between the loc
 sfdx force:source --help
 ```
 
-undefined
+![11](tutorial/11.png)
 ```
 sfdx force:source:status
 ```
 
-undefined
+![11a](tutorial/11a.png)
 ```
 sfdx force:source:push
 sfdx force:source:status
 ```
 
-undefined
-### step 12:
+![11b](tutorial/11b.png)
+### Step 12:
 
 Open the scratch org automatically with the Salesforce CLI using below command. You don't have to manually login to the scratch org as the CLI takes care of the authentication and launching it in the browser. At this point, you can find the 3 new components in the scratch org under “Setup | Custom Code | Lightning Components”.
 
@@ -232,10 +232,10 @@ Open the scratch org automatically with the Salesforce CLI using below command. 
 sfdx force:org:open
 ```
 
-undefinedundefinedundefined
-### step 13:
+![12](tutorial/12.png)![12a](tutorial/12a.png)![12b](tutorial/12b.png)
+### Step 13:
 
-Add the “quickContactViewEdit” component to the contact detail page using Lightning App Builder and test the component. Refer to below steps and the screenshots gif.
+Add the “quickContactViewEdit” component to the contact detail page using Lightning App Builder and test the component. Refer to below Steps and the screenshots gif.
 
 1. Click on the App Launcher icon in the left top corner
 2. Click on the “Sales” app.
@@ -249,8 +249,8 @@ Add the “quickContactViewEdit” component to the contact detail page using Li
 10. Check out the component's functionality. It's in View mode by default, click on “Click to Edit” for Edit Mode.
 11. Make changes, click “Save”, and then click “Done Editing” to return to View Mode.
 
-undefined
-### step 14:
+![13](tutorial/13.gif)
+### Step 14:
 
 At this point, there is new metadata in the scratch org, the new “Contact Record Page” lightning page (flexipage), which doesn't yet exist on your local machine. When you do “force:source:status” on local machine, we will see changes available to be synced in the “Remote” (scratch org). Pull the new metadata (which is also code) into the local source code (Salesforce DX project) using the Salesforce CLI command “force:source:pull”. There is now a “flexipages” sub-directory (folder) with a file “Contact_Record_Page.flexipage-meta.xml” in the Salesforce DX project directory which shows in VS Code.
 
@@ -258,15 +258,14 @@ At this point, there is new metadata in the scratch org, the new “Contact Reco
 sfdx force:source:status
 ```
 
-undefined
+![14](tutorial/14.png)
 ```
 sfdx force:source:pull
 sfdx force:source:status
 ```
 
-undefinedundefined
-### step 15:
-
+![14a](tutorial/14a.png)![14b](tutorial/14b.png)
+### Step 15:
 Use Git version control to safely commit the changes to source code and maintain this version permanently.
 
 1. Check the status of the git repository. We see files in red which are not yet staged to be committed.
@@ -281,15 +280,18 @@ Use Git version control to safely commit the changes to source code and maintain
     1. git commit -m "first commit"
         git status
 
-undefinedundefinedundefinedundefined
-### step 16:
+![15](tutorial/15.png)![15a](tutorial/15a.png)![15b](tutorial/15b.png)![15c](tutorial/15c.png)
+### Step 16:
 
-Create a Github repository with your github account to add our Salesforce DX project and git commit for sharing and collaboration. You can give it the same name as the Salesforce DX project “LCwithDX”. Copy the URL of the new github repository and add it as a “remote” location to git on the local machine so that the local git commit can directly be pushed to Github with a single git command. Let's follow standard naming conventions and call the remote “Origin”. Once its done, we can now push the git commit to Origin using the command “git push origin master”. At this point, your github repository is now populated with your latest committed Salesforce DX project! You can now share this with anyone to collaborate while maintaining version control and source code management.
+Create a Github repository with your github account to add our Salesforce DX project and git commit for sharing and collaboration. You can give it the same name as the Salesforce DX project “LCwithDX”. Copy the URL of the new github repository for the next step.
+![16](tutorial/16.png)![16a](tutorial/16a.png)![16b](tutorial/16b.png)
+### Step 17:
+
+Add the URL as a “remote” location to git on the local machine so that the local git commit can directly be pushed to Github with a single git command. Let's follow standard naming conventions and call the remote “Origin”. We can now push the git commit to Origin using the command “git push origin master”. At this point, your github repository is now populated with your latest committed Salesforce DX project! You can now share this with anyone to collaborate while maintaining version control and source code management.
 
 ```
-git remote add origin https://github.com/ShashForce/LCwithDX.git
+git remote add origin *yourGithubRepoURL*
 git push origin master
 ```
 
-undefinedundefined
-
+![17](tutorial/17.png)![17a](tutorial/17a.png)
